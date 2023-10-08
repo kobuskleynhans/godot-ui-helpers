@@ -23,7 +23,7 @@ In the `/scene` directory, you'll find sample scenes that show different usage s
 Please run these scenes and experiment with changing the `distance` variable inside the inspector on runtime, so you can see how they affect the present UI elements. Inside the inspector, by manipulating the properties of the script, you are able to see the immediate changes in the scene.
 | Battery Sample  | Signal Sample | Folder Sample |
 | --- | --- | --- |
-| `/scenes/battery-sample.tscn` | `/scenes/signal-sample.tscn` |
+| `/scenes/battery-sample.tscn` | `/scenes/signal-sample.tscn` | `/scenes/folder-sample.tscn` |
 | <img src="https://raw.githubusercontent.com/kobuskleynhans/godot-ui-helpers/godot-4.1/addons/godot-ui-helpers/shots/battery-sample.png"  width="200" height="200"> | <img src="https://raw.githubusercontent.com/kobuskleynhans/godot-ui-helpers/godot-4.1/addons/godot-ui-helpers/shots/signal-sample.png"  width="200" height="200"> | <img src="https://raw.githubusercontent.com/kobuskleynhans/godot-ui-helpers/godot-4.1/addons/godot-ui-helpers/shots/folder-sample.png"  width="200" height="200"> |
 
 | Progress Sample | Hydrogen Sample | 
