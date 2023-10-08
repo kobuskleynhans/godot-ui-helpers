@@ -1,0 +1,25 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Godot-ui-helpers"
+run/main_scene="res://godot-ui-helpers/scenes/signal_sample.tscn"
+config/features=PackedStringArray("4.1", "C#", "GL Compatibility")
+config/icon="res://godot-ui-helpers/icon.svg"
+
+[dotnet]
+
+project/assembly_name="Godot-ui-helpers"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
