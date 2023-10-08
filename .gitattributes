@@ -3,4 +3,5 @@
 
 /**        export-ignore
 /Godot-ui-helpers.csproj    !export-ignore
+/godot-ui-helpers    !export-ignore
 /godot-ui-helpers/** !export-ignore
