@@ -2,6 +2,8 @@
 
 This is a guide to use a C# script in [Godot](https://godotengine.org/) for creating dynamic UI components using 2D Sprites. 
 
+![screenshot](https://raw.githubusercontent.com/kobuskleynhans/godot-ui-helpers/godot-4.1/addons/godot-ui-helpers/shots/star-sample.png)
+
 ## Quick Start
 
 1.  After importing the asset, if you do not already have a C# Solution you can create one under `Project -> Tools -> C# -> Create C# Solution`.
@@ -19,6 +21,15 @@ It's a good idea to look at the sample scenes to get a feel for how the script w
 In the `/scene` directory, you'll find sample scenes that show different usage scenarios for the script. You can use these as starting points or references for your own use cases.
 
 Please run these scenes and experiment with changing the `distance` variable inside the inspector on runtime, so you can see how they affect the present UI elements. Inside the inspector, by manipulating the properties of the script, you are able to see the immediate changes in the scene.
+| Battery Sample  | Signal Sample | Folder Sample |
+| --- | --- | --- |
+| `/scenes/battery-sample.tscn` | `/scenes/signal-sample.tscn` |
+| <img src="https://raw.githubusercontent.com/kobuskleynhans/godot-ui-helpers/godot-4.1/addons/godot-ui-helpers/shots/battery-sample.png"  width="200" height="200"> | <img src="https://raw.githubusercontent.com/kobuskleynhans/godot-ui-helpers/godot-4.1/addons/godot-ui-helpers/shots/signal-sample.png"  width="200" height="200"> | <img src="https://raw.githubusercontent.com/kobuskleynhans/godot-ui-helpers/godot-4.1/addons/godot-ui-helpers/shots/folder-sample.png"  width="200" height="200"> |
+
+| Progress Sample | Hydrogen Sample | 
+| --- | --- |
+| `/scenes/progress-sample.tscn` | `/scenes/hydrogen-sample.tscn` |
+| <img src="https://raw.githubusercontent.com/kobuskleynhans/godot-ui-helpers/godot-4.1/addons/godot-ui-helpers/shots/progress-sample.png"  width="200" height="200"> | <img src="https://raw.githubusercontent.com/kobuskleynhans/godot-ui-helpers/godot-4.1/addons/godot-ui-helpers/shots/hydrogen-sample.png"  width="200" height="200"> 
 
 ## How to Use
 
