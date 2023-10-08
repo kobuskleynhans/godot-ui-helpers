@@ -2,6 +2,16 @@
 
 This is a guide to use a C# script in [Godot](https://godotengine.org/) for creating dynamic UI components using 2D Sprites. 
 
+## Quick Start
+
+1.  After importing the asset, if you do not already have a C# Solution you can create one under `Project -> Tools -> C# -> Create C# Solution`.
+
+2. Then click `Build` which will build the .Net Project.
+
+3. Load one of the sample scenes under `addons/godot-ui-helpers/scenes`and run it.
+
+4. Change the `distance` variable in the inspector and other settings to see the effects.
+
 ## Sample Scenes
 
 It's a good idea to look at the sample scenes to get a feel for how the script works.
