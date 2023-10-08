@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://co08s7k7gili7"]
+
+[ext_resource type="Script" path="res://addons/godot-ui-helpers/scripts/sprite2d_ui.cs" id="1_lchyj"]
+[ext_resource type="Texture2D" uid="uid://bjajdkym1i6sh" path="res://addons/godot-ui-helpers/textures/heavy-black-heart.svg.png" id="2_bluym"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Rating" type="Node2D" parent="Camera2D"]
+position = Vector2(200, 0)
+rotation = 1.5708
+
+[node name="Background" type="Node2D" parent="Camera2D/Rating"]
+script = ExtResource("1_lchyj")
+_baseScale = Vector2(0.5, 0.5)
+_pipTexture = ExtResource("2_bluym")
+_pipSpacing = 140.0
+_pipRotationOffset = 270.0
+minPips = 5
+_pipColor0 = Color(0.172549, 0.172549, 0.172549, 1)
+_pipColor100 = Color(0.172549, 0.172549, 0.172549, 1)
+_endScale = Vector2(0, 0)
+maxAngle = 0.0
+angle = 0.0
+
+[node name="Heart" type="Node2D" parent="Camera2D/Rating"]
+rotation = 3.14159
+script = ExtResource("1_lchyj")
+_baseScale = Vector2(0.5, 0.5)
+_baseOffset = Vector2(0, -3.865)
+_pipTexture = ExtResource("2_bluym")
+_pipScale0 = Vector2(0.85, 0.9)
+_pipScale100 = Vector2(0.85, 0.9)
+_pipOffset0 = Vector2(-0.24, -542.715)
+_pipOffset100 = Vector2(-1.095, -542.715)
+_pipSpacing = 140.0
+_pipRotationOffset = 90.0
+_pipColor0 = Color(1, 0.0431373, 0.0901961, 1)
+_pipColor100 = Color(1, 0.0431373, 0.0901961, 1)
+_endScale = Vector2(0, 0)
+_endRotationOffset = 90.909
+_endColor0 = Color(1, 1, 1, 0)
+maxAngle = 0.0
+distance = 58.974
+angle = 0.0

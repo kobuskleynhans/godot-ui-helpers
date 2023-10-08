@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://co6xiqhmydhl7"]
+
+[ext_resource type="Script" path="res://addons/godot-ui-helpers/scripts/sprite2d_ui.cs" id="1_ndkkn"]
+[ext_resource type="Texture2D" uid="uid://cd4uv6ounp2aa" path="res://addons/godot-ui-helpers/textures/favorite-on.svg.png" id="2_631na"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Rating" type="Node2D" parent="Camera2D"]
+position = Vector2(200, 0)
+rotation = 1.5708
+
+[node name="Background" type="Node2D" parent="Camera2D/Rating"]
+script = ExtResource("1_ndkkn")
+_pipTexture = ExtResource("2_631na")
+_pipSpacing = 117.245
+_pipRotationOffset = 54.0
+minPips = 5
+_pipColor0 = Color(0.172549, 0.172549, 0.172549, 1)
+_pipColor100 = Color(0.172549, 0.172549, 0.172549, 1)
+_endScale = Vector2(0, 0)
+_showEndAt0 = false
+_showEndAt100 = false
+maxAngle = 0.0
+angle = 0.0
+
+[node name="Star" type="Node2D" parent="Camera2D/Rating"]
+rotation = 3.14159
+script = ExtResource("1_ndkkn")
+_pipTexture = ExtResource("2_631na")
+_pipScale0 = Vector2(0.8, 0.8)
+_pipScale100 = Vector2(0.8, 0.8)
+_pipOffset0 = Vector2(-2, -466.22)
+_pipOffset100 = Vector2(-2, -466.22)
+_pipSpacing = 116.0
+_pipRotationOffset = 19.0
+_pipColor0 = Color(0.901961, 0.631373, 0.203922, 1)
+_pipColor100 = Color(0.901961, 0.631373, 0.203922, 1)
+_endScale = Vector2(0, 0)
+_endColor0 = Color(1, 1, 1, 0)
+_showEndAt0 = false
+_showEndAt100 = false
+maxAngle = 0.0
+distance = 60.0
+angle = 0.0

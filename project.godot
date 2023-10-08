@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Godot-ui-helpers"
-run/main_scene="res://godot-ui-helpers/scenes/signal_sample.tscn"
+run/main_scene="res://addons/godot-ui-helpers/scenes/signal_sample.tscn"
 config/features=PackedStringArray("4.1", "C#", "GL Compatibility")
-config/icon="res://godot-ui-helpers/icon.svg"
+config/icon="res://addons/godot-ui-helpers/icon.svg"
 
 [dotnet]
 

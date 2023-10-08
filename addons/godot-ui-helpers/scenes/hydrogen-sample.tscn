@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxl3v1ca3kxj7"]
+
+[ext_resource type="Script" path="res://addons/godot-ui-helpers/scripts/sprite2d_ui.cs" id="1_eyk1j"]
+[ext_resource type="Texture2D" uid="uid://0o3mvs6dtv1h" path="res://addons/godot-ui-helpers/textures/gas-cylinder.svg.png" id="2_y15mh"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Rating" type="Node2D" parent="Camera2D"]
+position = Vector2(200, 0)
+rotation = 1.5708
+
+[node name="Background" type="Node2D" parent="Camera2D/Rating"]
+script = ExtResource("1_eyk1j")
+_pipTexture = ExtResource("2_y15mh")
+_pipSpacing = 117.245
+minPips = 5
+_pipColor0 = Color(0.172549, 0.172549, 0.172549, 1)
+_pipColor100 = Color(0.172549, 0.172549, 0.172549, 1)
+_endScale = Vector2(0, 0)
+maxAngle = 0.0
+distance = 93.65
+angle = 0.0
+
+[node name="Hydrogen" type="Node2D" parent="Camera2D/Rating"]
+rotation = 3.14159
+script = ExtResource("1_eyk1j")
+_baseOffset = Vector2(0, 7.075)
+_pipTexture = ExtResource("2_y15mh")
+_pipScale0 = Vector2(0.85, 0.9)
+_pipScale100 = Vector2(0.85, 0.9)
+_pipOffset0 = Vector2(-1.095, -473.805)
+_pipOffset100 = Vector2(-1.095, -473.805)
+_pipSpacing = 116.785
+_pipRotationOffset = 180.0
+_pipColor0 = Color(0.2, 0.603922, 0.623529, 1)
+_pipColor100 = Color(0.2, 0.603922, 0.623529, 1)
+_endScale = Vector2(0, 0)
+_endRotationOffset = 90.909
+_endColor0 = Color(1, 1, 1, 0)
+maxAngle = 0.0
+distance = 38.462
+angle = 0.0
