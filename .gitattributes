@@ -2,5 +2,5 @@
 * text=auto eol=lf
 
 /**        export-ignore
-/godot-ui-helpers    !export-ignore
+/Godot-ui-helpers.csproj    !export-ignore
 /godot-ui-helpers/** !export-ignore
