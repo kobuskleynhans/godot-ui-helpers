@@ -1,7 +1,4 @@
 # Normalize EOL for all files that Git considers text files.
 * text=auto eol=lf
 
-/**        export-ignore
-/Godot-ui-helpers.csproj    !export-ignore
-/godot-ui-helpers    !export-ignore
-/godot-ui-helpers/** !export-ignore
+/**        !export-ignore
