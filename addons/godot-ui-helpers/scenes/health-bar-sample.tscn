@@ -17,11 +17,11 @@ _baseScale = Vector2(0.5, 0.5)
 _pipTexture = ExtResource("2_bluym")
 _pipSpacing = 140.0
 _pipRotationOffset = 270.0
-minPips = 5
+_minPips = 5
 _pipColor0 = Color(0.172549, 0.172549, 0.172549, 1)
 _pipColor100 = Color(0.172549, 0.172549, 0.172549, 1)
 _endScale = Vector2(0, 0)
-maxAngle = 0.0
+_maxAngle = 0.0
 angle = 0.0
 
 [node name="Heart" type="Node2D" parent="Camera2D/Health"]
@@ -41,6 +41,6 @@ _pipColor100 = Color(1, 0.0431373, 0.0901961, 1)
 _endScale = Vector2(0, 0)
 _endRotationOffset = 90.909
 _endColor0 = Color(1, 1, 1, 0)
-maxAngle = 0.0
+_maxAngle = 0.0
 distance = 58.974
 angle = 0.0

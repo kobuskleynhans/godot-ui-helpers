@@ -35,9 +35,9 @@ public partial class sprite2d_ui : Node2D
 	[Export(PropertyHint.Range, "0, 360")] private float _pipRotationOffset = 0f;
 	//How far from the _base the first pip will be placed
 	[Export] private float _pipCentreOffset = 0f;
-	[Export] private int maxPips = 5;
 	//Will always show this number of pips even if _distance is 0
-	[Export] private int minPips = 0;
+	[Export] private int _minPips = 0;
+	[Export] private int _maxPips = 5;
 	[Export(PropertyHint.None, hintString: "Color of the '_pipTexture' at 0%")] private Color _pipColor0 = Color.FromHtml("#ffffff");
 	[Export(PropertyHint.None, hintString: "Color of the '_pipTexture' at 100%")] private Color _pipColor100 = Color.FromHtml("#ffffff");
 	#endregion
@@ -56,7 +56,7 @@ public partial class sprite2d_ui : Node2D
 	#endregion
 
 	#region ======== Settings ========
-	
+
 	public enum Mode
 	{
 		Fill, //This will show each pip along the way until 100 is reached
@@ -71,9 +71,8 @@ public partial class sprite2d_ui : Node2D
 
 	//Change angle over distance
 	[Export] public bool _angleBasedOnDistance = false;
-	[Export(PropertyHint.Range, "0, 360")] private float minAngle = 0;
-	[Export(PropertyHint.Range, "0, 360")] private float maxAngle = 360;
-
+	[Export(PropertyHint.Range, "0, 360")] private float _minAngle = 0;
+	[Export(PropertyHint.Range, "0, 360")] private float _maxAngle = 360;
 
 	#endregion
 
@@ -101,7 +100,7 @@ public partial class sprite2d_ui : Node2D
 		_startPosition = _base.Position;
 		_startRotation = _base.Rotation;
 
-		for (int i = 0; i < maxPips; i++)
+		for (int i = 0; i < _maxPips; i++)
 		{
 			createPip(i);
 
@@ -118,7 +117,7 @@ public partial class sprite2d_ui : Node2D
 	{
 		if (!safetyChecks()) return;
 
-		int pipsToShow = Mathf.RoundToInt((distance / 100) * (maxPips - minPips)) + minPips;
+		int pipsToShow = Mathf.RoundToInt((distance / 100) * (_maxPips - _minPips)) + _minPips;
 
 		processBase();
 		processPips(pipsToShow);
@@ -132,10 +131,10 @@ public partial class sprite2d_ui : Node2D
 	private bool safetyChecks()
 	{
 		//Some Clamps 
-		if (minPips < 0) minPips = 0;
-		if (maxPips < 1) maxPips = 1;
-		if (minPips > maxPips) maxPips = minPips;
-		if (maxPips < minPips) minPips = maxPips;
+		if (_minPips < 0) _minPips = 0;
+		if (_maxPips < 1) _maxPips = 1;
+		if (_minPips > _maxPips) _maxPips = _minPips;
+		if (_maxPips < _minPips) _minPips = _maxPips;
 
 		//Cleanup mirror if it was disabled
 		if (!_mirror && _mirroPips.Count > 0)
@@ -149,10 +148,10 @@ public partial class sprite2d_ui : Node2D
 		}
 
 		//Make sure we have enough created pips if the max or minPips change at runtime
-		if (maxPips > _pips.Count)
+		if (_maxPips > _pips.Count)
 		{
 			//Add more pips
-			for (int i = _pips.Count; i < maxPips; i++)
+			for (int i = _pips.Count; i < _maxPips; i++)
 			{
 				createPip(i);
 				if (_mirror == true)
@@ -163,10 +162,10 @@ public partial class sprite2d_ui : Node2D
 			return false;
 		}
 
-		if (maxPips < _pips.Count)
+		if (_maxPips < _pips.Count)
 		{
 			//Remove pips
-			for (int i = _pips.Count - maxPips - 1; i < _pips.Count - 1; i++)
+			for (int i = _pips.Count - _maxPips - 1; i < _pips.Count - 1; i++)
 			{
 				hidePip(i);
 				destroyPip(i);
@@ -214,7 +213,7 @@ public partial class sprite2d_ui : Node2D
 	{
 		if (_angleBasedOnDistance)
 		{
-			var lerpAngle = Mathf.Lerp(minAngle, maxAngle, Mathf.InverseLerp(0, 100, distance));
+			var lerpAngle = Mathf.Lerp(_minAngle, _maxAngle, Mathf.InverseLerp(0, 100, distance));
 			_base.Rotation = Mathf.Lerp(0f, _maxR, Mathf.InverseLerp(0, 360, lerpAngle));
 		}
 		else
@@ -270,8 +269,8 @@ public partial class sprite2d_ui : Node2D
 		newPip.Position = new Vector2(
 			Position.X + _pipOffset0.X,
 			Position.Y + _pipCentreOffset + (_pipSpacing * i) + _pipOffset0.Y) + new Vector2(
-					Mathf.Lerp(_pipOffset0.X, _pipOffset100.X, Mathf.InverseLerp(0, maxPips, i)),
-					Mathf.Lerp(_pipOffset0.Y, _pipOffset100.Y, Mathf.InverseLerp(0, maxPips, i))
+					Mathf.Lerp(_pipOffset0.X, _pipOffset100.X, Mathf.InverseLerp(0, _maxPips, i)),
+					Mathf.Lerp(_pipOffset0.Y, _pipOffset100.Y, Mathf.InverseLerp(0, _maxPips, i))
 				);
 
 		_base.AddChild(newPip);
@@ -320,11 +319,11 @@ public partial class sprite2d_ui : Node2D
 
 	private void processPips(int pipsToShow)
 	{
-		if (pipsToShow < minPips)
+		if (pipsToShow < _minPips)
 		{
 			showMinPips();
 		}
-		else for (int i = 0; i < maxPips; i++)
+		else for (int i = 0; i < _maxPips; i++)
 			{
 				if (i > _pips.Count - 1)
 				{
@@ -367,7 +366,7 @@ public partial class sprite2d_ui : Node2D
 	/// </summary>
 	private void showMinPips()
 	{
-		for (int i = 0; i < minPips; i++)
+		for (int i = 0; i < _minPips; i++)
 		{
 			var pipIndex = 0;
 			if (_mode == Mode.Snap || _mode == Mode.Slide)
@@ -380,10 +379,10 @@ public partial class sprite2d_ui : Node2D
 			}
 
 			showPip(pipIndex);
-			movePip(pipIndex, minPips);
+			movePip(pipIndex, _minPips);
 			scalePip(pipIndex);
 			rotatePip(pipIndex);
-			updatePipColor(pipIndex, minPips);
+			updatePipColor(pipIndex, _minPips);
 			updatePipTexture(pipIndex);
 		}
 	}
@@ -443,8 +442,8 @@ public partial class sprite2d_ui : Node2D
 
 			_pips[i].Position +=
 			new Vector2(
-				Mathf.Lerp(_pipOffset0.X, _pipOffset100.X, Mathf.InverseLerp(0, maxPips, _mode == Mode.Snap ? pipsToShow - 1 : i)),
-				Mathf.Lerp(_pipOffset0.Y, _pipOffset100.Y, Mathf.InverseLerp(0, maxPips, _mode == Mode.Snap ? pipsToShow - 1 : i))
+				Mathf.Lerp(_pipOffset0.X, _pipOffset100.X, Mathf.InverseLerp(0, _maxPips, _mode == Mode.Snap ? pipsToShow - 1 : i)),
+				Mathf.Lerp(_pipOffset0.Y, _pipOffset100.Y, Mathf.InverseLerp(0, _maxPips, _mode == Mode.Snap ? pipsToShow - 1 : i))
 			);
 		}
 
@@ -463,7 +462,7 @@ public partial class sprite2d_ui : Node2D
 				Mathf.Lerp(
 					Position.Y + _pipCentreOffset,
 					Position.Y + _pipCentreOffset + _pipSpacing,
-					Mathf.InverseLerp(0, 100 / maxPips, distance))
+					Mathf.InverseLerp(0, 100 / _maxPips, distance))
 			);
 		}
 		else
@@ -473,7 +472,7 @@ public partial class sprite2d_ui : Node2D
 				Mathf.Lerp(
 					Position.Y + _pipCentreOffset + (_pipSpacing * i),
 					Position.Y + _pipCentreOffset + (_pipSpacing * (i + 1)),
-					Mathf.InverseLerp(100 - (i * 100 / maxPips), 100 - (i * 100 / maxPips) + (100 / maxPips), distance))
+					Mathf.InverseLerp(100 - (i * 100 / _maxPips), 100 - (i * 100 / _maxPips) + (100 / _maxPips), distance))
 			);
 		}
 
@@ -495,8 +494,8 @@ public partial class sprite2d_ui : Node2D
 			if (_mode != Mode.Slide && _mode != Mode.Snap)
 			{
 				_pips[i].Scale = new Vector2(
-					Mathf.Lerp(_pipScale0.X, _pipScale100.X, Mathf.InverseLerp(0, maxPips, i)),
-					Mathf.Lerp(_pipScale0.Y, _pipScale100.Y, Mathf.InverseLerp(0, maxPips, i)));
+					Mathf.Lerp(_pipScale0.X, _pipScale100.X, Mathf.InverseLerp(0, _maxPips, i)),
+					Mathf.Lerp(_pipScale0.Y, _pipScale100.Y, Mathf.InverseLerp(0, _maxPips, i)));
 			}
 			else
 			{
@@ -539,10 +538,10 @@ public partial class sprite2d_ui : Node2D
 		}
 		else
 		{
-			var r = Mathf.Lerp(_pipColor0.R, _pipColor100.R, Mathf.InverseLerp(0, maxPips, _mode != Mode.Fill ? pipsToShow - 1 : i));
-			var g = Mathf.Lerp(_pipColor0.G, _pipColor100.G, Mathf.InverseLerp(0, maxPips, _mode != Mode.Fill ? pipsToShow - 1 : i));
-			var b = Mathf.Lerp(_pipColor0.B, _pipColor100.B, Mathf.InverseLerp(0, maxPips, _mode != Mode.Fill ? pipsToShow - 1 : i));
-			var a = Mathf.Lerp(_pipColor0.A, _pipColor100.A, Mathf.InverseLerp(0, maxPips, _mode != Mode.Fill ? pipsToShow - 1 : i));
+			var r = Mathf.Lerp(_pipColor0.R, _pipColor100.R, Mathf.InverseLerp(0, _maxPips, _mode != Mode.Fill ? pipsToShow - 1 : i));
+			var g = Mathf.Lerp(_pipColor0.G, _pipColor100.G, Mathf.InverseLerp(0, _maxPips, _mode != Mode.Fill ? pipsToShow - 1 : i));
+			var b = Mathf.Lerp(_pipColor0.B, _pipColor100.B, Mathf.InverseLerp(0, _maxPips, _mode != Mode.Fill ? pipsToShow - 1 : i));
+			var a = Mathf.Lerp(_pipColor0.A, _pipColor100.A, Mathf.InverseLerp(0, _maxPips, _mode != Mode.Fill ? pipsToShow - 1 : i));
 			_pips[i].Modulate = new Color(r, g, b, a);
 		}
 
@@ -642,10 +641,10 @@ public partial class sprite2d_ui : Node2D
 				Position.Y + _pipCentreOffset + (_pipSpacing * pipsToShow) + _endOffset.Y) + _baseOffset;
 
 		}
-		else if (pipsToShow < minPips)
+		else if (pipsToShow < _minPips)
 		{
 			_end.Position = new Vector2(Position.X + _endOffset.X,
-				Position.Y + _pipCentreOffset + (_pipSpacing * minPips) + _endOffset.Y) + _baseOffset;
+				Position.Y + _pipCentreOffset + (_pipSpacing * _minPips) + _endOffset.Y) + _baseOffset;
 		}
 		else
 		{

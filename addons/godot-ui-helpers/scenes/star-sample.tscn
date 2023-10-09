@@ -17,13 +17,13 @@ script = ExtResource("1_ndkkn")
 _pipTexture = ExtResource("2_631na")
 _pipSpacing = 117.245
 _pipRotationOffset = 54.0
-minPips = 5
+_minPips = 5
 _pipColor0 = Color(0.172549, 0.172549, 0.172549, 1)
 _pipColor100 = Color(0.172549, 0.172549, 0.172549, 1)
 _endScale = Vector2(0, 0)
 _showEndAt0 = false
 _showEndAt100 = false
-maxAngle = 0.0
+_maxAngle = 0.0
 angle = 0.0
 
 [node name="Star" type="Node2D" parent="Camera2D/Rating"]
@@ -42,6 +42,6 @@ _endScale = Vector2(0, 0)
 _endColor0 = Color(1, 1, 1, 0)
 _showEndAt0 = false
 _showEndAt100 = false
-maxAngle = 0.0
+_maxAngle = 0.0
 distance = 100.0
 angle = 0.0
