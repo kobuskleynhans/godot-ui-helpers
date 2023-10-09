@@ -8,7 +8,7 @@
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Sprite2D" type="Node2D" parent="Camera2D"]
+[node name="Progress" type="Node2D" parent="Camera2D"]
 script = ExtResource("1_g7iqi")
 _baseTexture = ExtResource("2_t8r18")
 _baseScale = Vector2(0.6, 1.4)
@@ -25,4 +25,4 @@ _endScale = Vector2(0, 0)
 _endRotationOffset = 180.0
 _showEndAt0 = false
 _showEndAt100 = false
-distance = 100.0
+distance = 99.552

@@ -8,10 +8,9 @@
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="easy-ui" type="Node2D" parent="Camera2D"]
+[node name="Folder" type="Node2D" parent="Camera2D"]
 rotation = 3.14159
 script = ExtResource("1_0b0dj")
-_mode = 2
 _baseTexture = ExtResource("2_vhr02")
 _baseColor0 = Color(1, 0.411765, 0, 1)
 _baseColor100 = Color(1, 0.411765, 0, 1)
@@ -29,6 +28,7 @@ _pipColor100 = Color(1, 1, 1, 0.580392)
 _endRotationOffset = 2.41
 _showEndAt0 = false
 _showEndAt100 = false
+_mode = 2
 minAngle = 180.0
 maxAngle = 89.117
 distance = 100.0

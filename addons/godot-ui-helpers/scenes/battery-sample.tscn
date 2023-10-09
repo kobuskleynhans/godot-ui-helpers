@@ -9,7 +9,7 @@
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="ui-helper" type="Node2D" parent="Camera2D"]
+[node name="Battery" type="Node2D" parent="Camera2D"]
 rotation = 3.14159
 script = ExtResource("1_8laiw")
 _baseTexture = ExtResource("2_3iej2")

@@ -8,7 +8,7 @@
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Sprite2D" type="Node2D" parent="Camera2D"]
+[node name="Revs" type="Node2D" parent="Camera2D"]
 script = ExtResource("1_oppoi")
 _baseTexture = ExtResource("2_ncj73")
 _pipTexture = ExtResource("3_cnx0q")
@@ -24,4 +24,3 @@ _pipColor100 = Color(1, 0, 0.121569, 1)
 _angleBasedOnDistance = true
 minAngle = 130.0
 maxAngle = 220.0
-distance = 100.0

@@ -7,9 +7,9 @@
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="mobile-signal" type="Node2D" parent="Camera2D"]
+[node name="MobileSignal" type="Node2D" parent="Camera2D"]
 
-[node name="background" type="Node2D" parent="Camera2D/mobile-signal"]
+[node name="background" type="Node2D" parent="Camera2D/MobileSignal"]
 scale = Vector2(1, 0.99696)
 script = ExtResource("1_rnosn")
 _pipTexture = ExtResource("2_wgjk3")
@@ -26,7 +26,7 @@ _showEndAt100 = false
 distance = 100.0
 angle = 270.0
 
-[node name="signal" type="Node2D" parent="Camera2D/mobile-signal"]
+[node name="signal" type="Node2D" parent="Camera2D/MobileSignal"]
 scale = Vector2(1, 0.99696)
 script = ExtResource("1_rnosn")
 _pipTexture = ExtResource("2_wgjk3")

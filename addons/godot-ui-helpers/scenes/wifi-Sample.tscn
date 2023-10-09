@@ -8,7 +8,7 @@
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="ui-helper" type="Node2D" parent="Camera2D"]
+[node name="WifiSignal" type="Node2D" parent="Camera2D"]
 scale = Vector2(1, 0.99696)
 script = ExtResource("1_t73j7")
 _baseTexture = ExtResource("2_24ube")
@@ -18,9 +18,10 @@ _pipScale0 = Vector2(1.23, 0.76)
 _pipScale100 = Vector2(1.455, 1.625)
 _pipOffset100 = Vector2(0, 14.815)
 _pipSpacing = 45.69
-_pipRotationOffset = 180.0
+_pipRotationOffset = 90.0
 _pipCentreOffset = 52.0
 maxPips = 3
 _endScale = Vector2(0, 0)
 _showEndAt0 = false
 _showEndAt100 = false
+distance = 100.0
